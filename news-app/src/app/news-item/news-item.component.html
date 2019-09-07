@@ -1,0 +1,39 @@
+<div *ngIf="item" class='item'>
+    <div class='row'>
+        <div class='col-sm-10 col-xs-12 item-text'>
+            <div class='col-sm-12'>
+                <a href='{{item.url}}' class='item-title'>
+                    {{item.title}}
+                </a>
+                <span *ngIf='item.source' class='item-source'>
+                    ({{item.source}})
+                </span>
+            </div>
+            <span class='item-author col-sm-5'>
+                <i class="fa fa-user"></i>
+                <a href='{{item.by}}'> {{item.by}}</a>
+            </span>
+            <span class='item-comment-count col-sm-5' *ngIf='item.kids'>
+                <i class="fa fa-comments comment-icon" (click)='commentClick()' id='{{item.id}}'></i>
+                {{item.kids.length}}
+            </span>
+            <span>
+                <i class='fa fa-clock-o'></i>
+                {{getAgeFromTimestamp(item.time)}}
+            </span>
+        </div>
+        <div class='item-score'>
+            <i class='fa fa-sort-up'></i>
+            <span>
+                {{item.score}} points
+            </span>
+            <div>
+                <a class='hide-button' (click)='hideNewsItem()'>
+                    hide
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id='comment-section-{{item.id}}'>
+    </div>
+</div>

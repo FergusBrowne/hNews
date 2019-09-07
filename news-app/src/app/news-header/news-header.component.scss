@@ -1,0 +1,39 @@
+@import '../../assets/global_variables.scss';
+#header {
+    background-color: white;
+    margin: 10px;
+    b {
+        a {
+            color: $pink;
+            font-size: 32px;
+        }
+    }
+    a {
+        color: $navy;
+        padding-right: 5p
+    }
+    .active {
+        color: $greyPink;
+    }
+    .search-box {
+        width: 210px;
+        position: absolute;
+        right: 90px;
+        top: 23px;
+        .search-button {
+            border: 1px solid #ced4da;
+            border-top-right-radius: .25rem;
+            border-bottom-right-radius: .25rem;
+        }
+    }
+    #login {
+        background-color: $navy;
+        color: white;
+        padding: 6px 12px;
+        border: 1px solid $navy;
+        border-radius: 5px;
+        position: absolute;
+        right: 10px;
+        top: 23px;
+    }
+}

@@ -1,0 +1,14 @@
+<app-news-header></app-news-header>
+<table id='news-section' class='col-sm-12'>
+    <tr *ngFor='let id of newsItemIds | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize'>
+        <app-news-item [newsId]='id'></app-news-item>
+    </tr>
+</table>
+<div class='paging-buttons'>
+    <button (click)='pageClick("prev")' [disabled]='isFirstPage()'>
+        Previous Page
+    </button>
+    <button (click)='pageClick("next")' [disabled]='isLastPage()'>
+        Next Page
+    </button>
+</div>

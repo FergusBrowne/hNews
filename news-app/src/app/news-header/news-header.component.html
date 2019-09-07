@@ -1,0 +1,41 @@
+<div id='header'>
+    <div>
+        <b>
+            <a href=''>
+                <img src="hnicon.ico" width="32" height="32">
+                Hacker News
+            </a>
+        </b>
+        <a id='new' href='new' [class.active]='newsType=="new"'>
+            New
+        </a>
+        <a id='past' href='past' [class.active]='newsType=="past"'>
+            Past
+        </a>
+        <a id='ask' href='ask' [class.active]='newsType=="ask"'>
+            Ask
+        </a>
+        <a id='job' href='job' [class.active]='newsType=="job"'>
+            Jobs
+        </a>
+        <a id='show' href='show' [class.active]='newsType=="show"'>
+            Show
+        </a>
+        <a id='submit' href='submit' [class.active]='newsType=="submit"'>
+            Submit
+        </a>
+        </div>
+    <div class="input-group search-box">
+        <input [(ngModel)]="query" id="search-text" type="text" class="form-control" (keypress)='onEnter($event)' placeholder="Search Hacker News" aria-label="Search Hacker News" aria-describedby="search-button">
+        <div class="input-group-append">
+            <button class="search-button" id="search-button" (click)='searchNews()'>
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+    <div>
+        <a id='login' href='login' class='pull-right' [class.active]='newsType=="login"'>
+            Login
+        </a>
+    </div>
+</div>
