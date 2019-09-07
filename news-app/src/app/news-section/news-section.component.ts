@@ -49,6 +49,8 @@ export class NewsSectionComponent implements OnInit {
       case 'prev':
         this.page--;
         break;
+      default:
+        break;
     }
   }
 

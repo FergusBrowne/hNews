@@ -49,10 +49,6 @@ export class NewsItemComponent implements OnInit {
     }
   }
 
-  commentClick(): void {
-    // Render comment section or redirect to comment page
-  }
-
   extractSource(url: string): string {
     if (!url) {
       return '';
@@ -68,9 +64,19 @@ export class NewsItemComponent implements OnInit {
     return source;
   }
 
-  hideNewsItem(): void {
+  hideClick(): void {
     // Use this.id to hide
     // If logged in
+  }
+
+  commentClick(): void {
+    // Render comment section or redirect to comment page
+  }
+
+  upvoteClick(): void {
+    // Check user is logged in
+    // If not, redirect to login page
+    // Otherwise handle upvote
   }
 
 

@@ -44,7 +44,7 @@ describe('NewsItemComponent', () => {
     expect(NewsItemComponent.prototype.getAgeFromTimestamp).toHaveBeenCalled();
   });
 
-  it('buildUrl should return the correct url based on newsId', () => {
+  it('getUrl should return the correct url based on newsId', () => {
     expect(component).toBeTruthy();
     component.newsId = 15;
     expect(component.getUrl()).toBe('https://hacker-news.firebaseio.com/v0/item/15.json?print=pretty');
@@ -67,15 +67,23 @@ describe('NewsItemComponent', () => {
       .toBe('www.sec.gov');
   });
 
-  it('clicking the hide button should call the hideNewsItem function', () => {
-    spyOn(NewsItemComponent.prototype, 'hideNewsItem').and.callThrough();
+  it('clicking the hide button should call the hideClick function', () => {
+    spyOn(NewsItemComponent.prototype, 'hideClick').and.callThrough();
     const button: any = document.getElementsByClassName('hide-button')[0];
     expect(button).toBeTruthy();
     button.click();
-    expect(NewsItemComponent.prototype.hideNewsItem).toHaveBeenCalled();
+    expect(NewsItemComponent.prototype.hideClick).toHaveBeenCalled();
   });
 
-  it('clicking the hide button should call the hideNewsItem function', () => {
+  it('clicking the upvote button should call the upvoteClick function', () => {
+    spyOn(NewsItemComponent.prototype, 'upvoteClick').and.callThrough();
+    const button: any = document.getElementsByClassName('fa fa-sort-up')[0];
+    expect(button).toBeTruthy();
+    button.click();
+    expect(NewsItemComponent.prototype.upvoteClick).toHaveBeenCalled();
+  });
+
+  it('clicking the comment button should call the commentClick function', () => {
     spyOn(NewsItemComponent.prototype, 'commentClick').and.callThrough();
     const button: any = document.getElementsByClassName('comment-icon')[0];
     expect(button).toBeTruthy();

@@ -13,9 +13,9 @@
                 <i class="fa fa-user"></i>
                 <a href='{{item.by}}'> {{item.by}}</a>
             </span>
-            <span class='item-comment-count col-sm-5' *ngIf='item.kids'>
+            <span class='item-comment-count col-sm-5' >
                 <i class="fa fa-comments comment-icon" (click)='commentClick()' id='{{item.id}}'></i>
-                {{item.kids.length}}
+                {{(item.kids) ? item.kids.length: 0}}
             </span>
             <span>
                 <i class='fa fa-clock-o'></i>
@@ -23,12 +23,12 @@
             </span>
         </div>
         <div class='item-score'>
-            <i class='fa fa-sort-up'></i>
+            <i class='fa fa-sort-up' title='Upvote this post' (click)='upvoteClick()'></i>
             <span>
                 {{item.score}} points
             </span>
             <div>
-                <a class='hide-button' (click)='hideNewsItem()'>
+                <a class='hide-button' title='Hide this post' (click)='hideClick()'>
                     hide
                 </a>
             </div>

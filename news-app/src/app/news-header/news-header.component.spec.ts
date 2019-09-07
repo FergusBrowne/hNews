@@ -68,7 +68,7 @@ describe('NewsHeaderComponent', () => {
     });
 
     it('setNewsType should get the news type and search query from the url', () => {
-      spyOn(NewsHeaderComponent.prototype, 'setNewsType');
+      spyOn(NewsHeaderComponent.prototype, 'setNewsType').and.callThrough();
       component.setNewsType(component.route);
       expect(component.newsType).toBe('search');
       expect(component.query).toBe('angular');
@@ -125,9 +125,10 @@ describe('NewsHeaderComponent', () => {
     });
 
     it('setNewsType should get the news type and search query from the url', () => {
-      spyOn(NewsHeaderComponent.prototype, 'setNewsType');
+      spyOn(NewsHeaderComponent.prototype, 'setNewsType').and.callThrough();
       component.setNewsType(component.route);
       expect(component.newsType).toBe('new');
+      expect(component.query).toBe('');
     });
 
   });

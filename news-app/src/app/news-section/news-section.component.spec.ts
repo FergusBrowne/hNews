@@ -47,7 +47,7 @@ describe('NewsSectionComponent', () => {
   beforeEach(() => {
     spyOn(NewsSectionComponent.prototype, 'buildUrl').and.callThrough();
     spyOn(NewsItemService.prototype, 'getItem').and.returnValue(of({}));
-    spyOn(NewsSectionService.prototype, 'getNewsIds').and.returnValue(of([1,2,3,4,5,6]));
+    spyOn(NewsSectionService.prototype, 'getNewsIds').and.returnValue(of([1, 2, 3, 4, 5, 6]));
     fixture = TestBed.createComponent(NewsSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -85,6 +85,9 @@ describe('NewsSectionComponent', () => {
     );
     expect(component.buildUrl({value: {type: 'show'}})).toBe(
       'https://hacker-news.firebaseio.com/v0/showstories.json?print=pretty'
+    );
+    expect(component.buildUrl({value: {type: 'searh'}})).toBe(
+      'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty'
     );
     expect(component.buildUrl({value: {type: 'blahblahblah'}})).toBe(
       'https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty'
