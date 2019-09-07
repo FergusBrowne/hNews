@@ -83,7 +83,13 @@ describe('NewsItemComponent', () => {
     expect(NewsItemComponent.prototype.commentClick).toHaveBeenCalled();
   });
 
-  it('', () => {
-    expect(component.getAgeFromTimestamp(1330192800).indexOf('years ago') > -1).toBe(true);
+  it('getAgeFromTimestamp should convert the timestamp to a relative time the user can understand', () => {
+    const now = new Date().getTime();
+    expect(component.getAgeFromTimestamp((now / 1000 - 1) )).toBe('1 second ago');
+    expect(component.getAgeFromTimestamp((now / 1000 - 60) )).toBe('1 minute ago');
+    expect(component.getAgeFromTimestamp((now / 1000 - 3600) )).toBe('1 hour ago');
+    expect(component.getAgeFromTimestamp((now / 1000 - 90000) )).toBe('1 day ago');
+    expect(component.getAgeFromTimestamp((now / 1000 - 2700000) )).toBe('1 month ago');
+    expect(component.getAgeFromTimestamp((now / 1000 - 90000 * 365) )).toBe('1 year ago');
   });
 });
